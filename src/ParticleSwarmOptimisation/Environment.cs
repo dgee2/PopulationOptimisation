@@ -18,7 +18,10 @@ namespace com.gee.ParticleSwarmOptimisation
 			IList<P> newParticles = new List<P>();
 			foreach (P particle in Particles)
 			{
-				newParticles.Add(particle.Iterate(this));
+				foreach (P newParticle in particle.Iterate(this))
+				{
+					newParticles.Add(newParticle);
+				}
 			}
 			Particles = newParticles;
 		}
