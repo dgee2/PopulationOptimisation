@@ -1,23 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace com.gee.ParticleSwarmOptimisation
 {
-	public abstract class Particle : IParticle
+	public abstract class Particle<P> : IParticle<P> where P : Particle<P>
 	{
+		public IList<double> Position { get; set; }
+		public IList<double> Speed { get; set; }
 
-		public double X { get; set; }
-
-		public double XSpeed { get; set; }
-
-		public double Y { get; set; }
-
-		public double YSpeed { get; set; }
-
-		public double GetDistance(IParticle particle)
+		public double GetDistance(P particle)
 		{
-			return Math.Sqrt(Math.Pow(particle.X - X, 2) + Math.Pow(particle.Y - Y, 2));
+			double res = 0;
+			for (int i = Position.Count - 1; i >= 0; i--)
+			{
+				double temp = Position[i] - particle.Position[i];
+				res += temp * temp;
+			}
+			return Math.Sqrt(res);
 		}
 
-		public abstract IParticle Iterate(IEnvironment<IParticle> environment);
+		protected void IteratePosition()
+		{
+			for (int i = Position.Count - 1; i >= 0; i--)
+			{
+				Position[i] += Speed[i];
+			}
+		}
+
+		public abstract IEnumerable<P> Iterate(IEnvironment<P> environment);
 	}
 }

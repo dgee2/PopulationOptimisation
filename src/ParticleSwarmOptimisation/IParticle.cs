@@ -1,13 +1,13 @@
-﻿namespace com.gee.ParticleSwarmOptimisation
-{
-	public interface IParticle
-	{
-		double X { get; }
-		double XSpeed { get; }
-		double Y { get; }
-		double YSpeed { get; }
-		double GetDistance(IParticle particle);
+﻿using System.Collections.Generic;
 
-		IParticle Iterate(IEnvironment<IParticle> environment);
+namespace com.gee.ParticleSwarmOptimisation
+{
+	public interface IParticle<P> where P : IParticle<P>
+	{
+		IList<double> Speed { get; }
+		IList<double> Position { get; }
+		double GetDistance(P particle);
+
+		IEnumerable<P> Iterate(IEnvironment<P> environment);
 	}
 }
