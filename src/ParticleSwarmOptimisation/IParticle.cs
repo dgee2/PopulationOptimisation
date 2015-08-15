@@ -6,7 +6,8 @@ namespace com.gee.ParticleSwarmOptimisation
 	{
 		IList<double> Speed { get; }
 		IList<double> Position { get; }
-		double GetDistance(P particle);
+		IEnumerable<double> GetDistance(P particle);
+		double GetCrowDistance(P particle);
 
 		IEnumerable<P> Iterate(IEnvironment<P> environment);
 	}

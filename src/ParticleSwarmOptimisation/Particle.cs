@@ -10,13 +10,19 @@ namespace com.gee.ParticleSwarmOptimisation
 		public IList<double> Position { get; set; }
 		public IList<double> Speed { get; set; }
 
-		public double GetDistance(P particle)
+		public IEnumerable<double> GetDistance(P particle)
 		{
-			double res = 0;
-			for (int i = Position.Count - 1; i >= 0; i--)
+			for (int i = 0; i < Position.Count; i++)
 			{
-				double temp = Position[i] - particle.Position[i];
-				res += temp * temp;
+				yield return particle.Position[i] - Position[i];
+			}
+		}
+
+		public double GetCrowDistance(P particle) {
+			double res = 0;
+			foreach (var item in GetDistance(particle))
+			{
+				res += item *item;
 			}
 			return Math.Sqrt(res);
 		}

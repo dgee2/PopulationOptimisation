@@ -10,7 +10,7 @@ namespace com.gee.ParticleSwarmOptimisation
 
 		public IEnumerable<Tuple<P, double>> GetParticleDistances(P particle)
 		{
-			return Particles.Select(x => new Tuple<P, double>(particle, x.GetDistance(particle)));
+			return Particles.Select(x => new Tuple<P, double>(particle, x.GetCrowDistance(particle)));
 		}
 
 		public void IterateEnvironment()
