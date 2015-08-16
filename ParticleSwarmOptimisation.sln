@@ -14,6 +14,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisationCo
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisation", "src\ParticleSwarmOptimisation\ParticleSwarmOptimisation.xproj", "{3E66079C-A448-4204-941D-00F5216923EA}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Optimiser", "src\Optimiser\Optimiser.xproj", "{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{3E66079C-A448-4204-941D-00F5216923EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E66079C-A448-4204-941D-00F5216923EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E66079C-A448-4204-941D-00F5216923EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
 		{3E66079C-A448-4204-941D-00F5216923EA} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
+		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
 	EndGlobalSection
 EndGlobal
