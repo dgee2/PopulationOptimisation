@@ -1,28 +1,26 @@
-﻿{
-  "version": "1.0.0-*",
-  "description": "ParticleSwarmOptimisation Console Application",
-  "authors": [ "dan" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+{
+    "version": "1.0.0-*",
+    "description": "ParticleSwarmOptimisation Console Application",
+    "authors": [ "dan" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
 
-  "dependencies": {
-  },
+    "dependencies": {
+        "Optimiser": "1.0.0-*"
+    },
 
-  "commands": {
-    "ParticleSwarmOptimisationConsole": "ParticleSwarmOptimisationConsole"
-  },
+    "commands": {
+        "Test": "ParticleSwarmOptimisationConsole --algorithm=Test",
+        "StyblinskiTang": "ParticleSwarmOptimisationConsole --algorithm=StyblinskiTang --variables=3"
+    },
 
-  "frameworks": {
-    "dnx451": { },
-    "dnxcore50": {
-      "dependencies": {
-        "System.Collections": "4.0.10-beta-23019",
-        "System.Console": "4.0.0-beta-23019",
-        "System.Linq": "4.0.0-beta-23019",
-        "System.Threading": "4.0.10-beta-23019",
-        "Microsoft.CSharp": "4.0.0-beta-23019"
-      }
+    "frameworks": {
+        "dnx451": {
+            "dependencies": {
+                "Microsoft.Framework.Configuration": "1.0.0-beta5",
+                "Microsoft.Framework.Configuration.CommandLine": "1.0.0-beta5"
+            }
+        }
     }
-  }
 }
