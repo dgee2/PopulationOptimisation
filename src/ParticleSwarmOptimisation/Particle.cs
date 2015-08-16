@@ -35,6 +35,6 @@ namespace com.gee.ParticleSwarmOptimisation
 			}
 		}
 
-		public abstract IEnumerable<P> Iterate(IEnvironment<P> environment);
+		public abstract IEnumerable<P> Iterate(ISwarm<P> swarm);
 	}
 }

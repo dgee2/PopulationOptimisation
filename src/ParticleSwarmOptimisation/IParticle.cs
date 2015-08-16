@@ -9,6 +9,6 @@ namespace com.gee.ParticleSwarmOptimisation
 		IEnumerable<double> GetDistance(P particle);
 		double GetCrowDistance(P particle);
 
-		IEnumerable<P> Iterate(IEnvironment<P> environment);
+		IEnumerable<P> Iterate(ISwarm<P> swarm);
 	}
 }
