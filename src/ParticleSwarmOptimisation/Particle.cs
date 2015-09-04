@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace com.gee.ParticleSwarmOptimisation
 {
-	public abstract class Particle<P> : IParticle<P> where P : Particle<P>
+	public abstract class Particle<P> : IParticle<P> where P : Particle<P>, new()
 	{
 		public IList<double> Position { get; set; }
 		public IList<double> Speed { get; set; }
@@ -34,7 +32,5 @@ namespace com.gee.ParticleSwarmOptimisation
 				Position[i] += Speed[i];
 			}
 		}
-
-		public abstract IEnumerable<P> Iterate(ISwarm<P> swarm);
 	}
 }
