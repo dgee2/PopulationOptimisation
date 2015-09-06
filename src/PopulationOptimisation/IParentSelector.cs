@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace com.gee.ParticleSwarmOptimisation
+namespace com.gee.PopulationOptimisation
 {
 	public interface IParentSelector<P>
 		where P : IParticle<P>, new()
 	{
-		IEnumerable<P> SelectParticles(P particle, IEnumerable<P> swarm);
+		IEnumerable<P> SelectParticles(P particle, IEnumerable<P> population);
 	}
 }

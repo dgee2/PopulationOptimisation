@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisationConsole", "src\ParticleSwarmOptimisationConsole\ParticleSwarmOptimisationConsole.xproj", "{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisation", "src\ParticleSwarmOptimisation\ParticleSwarmOptimisation.xproj", "{3E66079C-A448-4204-941D-00F5216923EA}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PopulationOptimisation", "src\PopulationOptimisation\PopulationOptimisation.xproj", "{3E66079C-A448-4204-941D-00F5216923EA}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Optimiser", "src\Optimiser\Optimiser.xproj", "{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimiser", "src\Optimiser\ParticleSwarmOptimiser.xproj", "{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

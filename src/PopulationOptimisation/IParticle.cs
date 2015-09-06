@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace com.gee.ParticleSwarmOptimisation
+namespace com.gee.PopulationOptimisation
 {
 	public interface IParticle<P> where P : IParticle<P>, new()
 	{

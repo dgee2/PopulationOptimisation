@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace com.gee.ParticleSwarmOptimisation
+namespace com.gee.PopulationOptimisation
 {
 	public abstract class Iterator<P> : IIterator<P> where P : IParticle<P>, new()
 	{
@@ -12,34 +12,34 @@ namespace com.gee.ParticleSwarmOptimisation
 
 		public IIteratorFactory<P> SubIteratorFactory { get; set; }
 
-		public IEnumerable<P> Iterate(IEnumerable<P> swarm)
+		public IEnumerable<P> Iterate(IEnumerable<P> population)
 		{
 			if (Selector != null)
 			{
-				swarm = Selector.SelectParticles(swarm);
+				population = Selector.SelectParticles(population);
 			}
 			if (ParentSelector == null)
 			{
-				swarm = swarm.SelectMany(particle =>
+				population = population.SelectMany(particle =>
 				{
-					return Iterate(particle, swarm);
+					return Iterate(particle, population);
 				});
 			}
 			else
 			{
-				swarm = swarm.SelectMany(particle =>
+				population = population.SelectMany(particle =>
 				{
-					return Iterate(particle, ParentSelector.SelectParticles(particle, swarm));
+					return Iterate(particle, ParentSelector.SelectParticles(particle, population));
 				});
 			}
 			if (SubIteratorFactory != null)
 			{
-				swarm = swarm.SelectMany(particle =>
+				population = population.SelectMany(particle =>
 				 {
 					 IList<P> ret = new List<P>();
 					 IIterator<P> iterator = SubIteratorFactory.GetIterator();
 					 iterator.Particle = particle;
-					 foreach (var newParticle in iterator.Iterate(swarm))
+					 foreach (var newParticle in iterator.Iterate(population))
 					 {
 						 ret.Add(newParticle);
 					 }
@@ -48,10 +48,10 @@ namespace com.gee.ParticleSwarmOptimisation
 			}
 			if (Restrictor != null)
 			{
-				swarm = Restrictor.SelectParticles(swarm);
+				population = Restrictor.SelectParticles(population);
 			}
-			return swarm;
+			return population;
 		}
-		protected abstract IEnumerable<P> Iterate(P particle, IEnumerable<P> swarm);
+		protected abstract IEnumerable<P> Iterate(P particle, IEnumerable<P> population);
 	}
 }

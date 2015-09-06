@@ -1,6 +1,6 @@
 ﻿{
 	"version": "1.0.0-*",
-	"description": "ParticleSwarmOptimisation Class Library",
+	"description": "Population Based Optimisation Class Library",
 	"authors": [ "dan" ],
 	"tags": [ "" ],
 	"projectUrl": "",

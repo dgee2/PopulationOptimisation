@@ -1,5 +1,4 @@
-﻿using com.gee.ParticleSwarmOptimisation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +9,10 @@ namespace Optimiser
 	{
 		public static void Run(Func<IList<double>, double> function, int variables, int iterations, int populationSize, int swarmSize)
 		{
+			ParticleIteratorFactory iteratorFactory = new ParticleIteratorFactory(new Random());
+			iteratorFactory.
+
+
 			OptimiserParticle.Function = function;
 			OptimiserParticle.RandomGenerator = new Random();
 			OptimiserParticle.Variables = variables;

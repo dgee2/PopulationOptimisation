@@ -1,6 +1,6 @@
 {
 	"version": "1.0.0-*",
-	"description": "Optimiser Class Library",
+	"description": "Particle Swarm Optimiser Class Library",
 	"authors": [ "dan" ],
 	"tags": [ "" ],
 	"projectUrl": "",
@@ -21,6 +21,6 @@
 		}
 	},
 	"dependencies": {
-		"ParticleSwarmOptimisation": "1.0.0-*"
+		"PopulationOptimisation": "1.0.0-*"
 	}
 }

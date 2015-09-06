@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace com.gee.ParticleSwarmOptimisation
+namespace com.gee.PopulationOptimisation
 {
 	public abstract class Selector<P> : ISelector<P>
 		where P : IParticle<P>, new()
 	{
-		public IEnumerable<P> Swarm { get; set; }
 		protected abstract Func<P, bool> function { get; }
 		protected abstract Func<P, double> orderBy { get; }
 
-		public IEnumerable<P> SelectParticles(IEnumerable<P> swarm)
+		public IEnumerable<P> SelectParticles(IEnumerable<P> population)
 		{
 			if (function != null)
 			{
-				swarm = swarm.Where(function);
+				population = population.Where(function);
 			}
 			if (orderBy != null)
 			{
-				swarm.OrderBy(orderBy);
+				population.OrderBy(orderBy);
 			}
-			return swarm;
+			return population;
 		}
 	}
 }

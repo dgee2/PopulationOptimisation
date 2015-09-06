@@ -1,4 +1,4 @@
-﻿namespace com.gee.ParticleSwarmOptimisation
+﻿namespace com.gee.PopulationOptimisation
 {
 	public interface IIteratorFactory<P> where P : IParticle<P>, new()
 	{

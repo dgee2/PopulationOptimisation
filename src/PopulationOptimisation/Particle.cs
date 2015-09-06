@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace com.gee.ParticleSwarmOptimisation
+namespace com.gee.PopulationOptimisation
 {
 	public abstract class Particle<P> : IParticle<P> where P : Particle<P>, new()
 	{
