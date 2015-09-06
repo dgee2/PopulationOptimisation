@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Optimiser
 {
-	public class OptimiserParticle : Particle<OptimiserParticle>, IComparable<OptimiserParticle>
+	public class OptimiserParticle : ProblemRepresentation<OptimiserParticle>, IComparable<OptimiserParticle>
 	{
 		public Func<IList<double>, double> Function;
 		public int Variables;

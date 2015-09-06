@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace com.gee.PopulationOptimisation
 {
-	public abstract class Iterator<P> : IIterator<P> where P : IParticle<P>, new()
+	public abstract class Iterator<P> : IIterator<P> where P : IProblemRepresentation<P>, new()
 	{
 		public ISelector<P> Selector { get; set; }
 		public IParentSelector<P> ParentSelector { get; set; }

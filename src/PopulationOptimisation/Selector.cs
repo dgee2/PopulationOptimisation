@@ -5,7 +5,7 @@ using System.Linq;
 namespace com.gee.PopulationOptimisation
 {
 	public abstract class Selector<P> : ISelector<P>
-		where P : IParticle<P>, new()
+		where P : IProblemRepresentation<P>, new()
 	{
 		protected abstract Func<P, bool> function { get; }
 		protected abstract Func<P, double> orderBy { get; }

@@ -3,7 +3,7 @@
 namespace com.gee.PopulationOptimisation
 {
 	public interface IParentSelector<P>
-		where P : IParticle<P>, new()
+		where P : IProblemRepresentation<P>, new()
 	{
 		IEnumerable<P> SelectParticles(P particle, IEnumerable<P> population);
 	}
