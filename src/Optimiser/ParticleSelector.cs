@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Optimiser
 {
-	public class ParticleSelector : ISelector<OptimiserParticle>
+	public class ParticleSelector : Selector<OptimiserParticle>
 	{
-		public Func<IEnumerable<double>, double> Function { get; set; }
-        public IEnumerable<OptimiserParticle> SelectParticles(IEnumerable<OptimiserParticle> population)
-		{
-			return population.OrderBy(particle => particle.Quality);
-		}
+		public override Func<OptimiserParticle, bool> Where { get; set; }
+
+		public override Func<OptimiserParticle, double> OrderBy { get; set; }
 	}
 }

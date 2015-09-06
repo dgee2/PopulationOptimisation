@@ -8,13 +8,15 @@ namespace Optimiser
 		public Random RandomGenerator { get; set; }
 		public double SlowdownFactor { get; set; } = .9;
 		public double AccelerationFactor { get; set; } = .5;
+		public Func<OptimiserParticle, double> Function { get; set; }
 
-		public ParticleIteratorFactory(Random randomGenerator)
+		public ParticleIteratorFactory(Random randomGenerator, Func<OptimiserParticle, double> function)
 		{
 			RandomGenerator = randomGenerator;
+			Function = function;
 		}
 
-		public IIteratorFactory<OptimiserParticle> SubIterator { get; set; }
+		public IIteratorFactory<OptimiserParticle> SubIteratorFactory { get; set; }
 
 		public IIterator<OptimiserParticle> GetIterator()
 		{
@@ -22,7 +24,8 @@ namespace Optimiser
 			{
 				AccelerationFactor = AccelerationFactor,
 				RandomGenerator = RandomGenerator,
-				SlowdownFactor = SlowdownFactor
+				SlowdownFactor = SlowdownFactor,
+				Selector = new ParticleSelector() { OrderBy = Function }
 			};
 		}
 	}

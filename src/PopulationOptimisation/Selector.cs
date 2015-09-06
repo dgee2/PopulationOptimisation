@@ -7,18 +7,18 @@ namespace com.gee.PopulationOptimisation
 	public abstract class Selector<P> : ISelector<P>
 		where P : IProblemRepresentation<P>, new()
 	{
-		protected abstract Func<P, bool> function { get; }
-		protected abstract Func<P, double> orderBy { get; }
+		public abstract Func<P, bool> Where { get; set; }
+		public abstract Func<P, double> OrderBy { get; set; }
 
 		public IEnumerable<P> SelectParticles(IEnumerable<P> population)
 		{
-			if (function != null)
+			if (Where != null)
 			{
-				population = population.Where(function);
+				population = population.Where(Where);
 			}
-			if (orderBy != null)
+			if (OrderBy != null)
 			{
-				population.OrderBy(orderBy);
+				population.OrderBy(OrderBy);
 			}
 			return population;
 		}

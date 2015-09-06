@@ -5,18 +5,20 @@ using System.Linq;
 
 namespace Optimiser
 {
-	public class OptimiserParticle : ProblemRepresentation<OptimiserParticle>, IComparable<OptimiserParticle>
+	public class OptimiserParticle : IProblemRepresentation<OptimiserParticle>
 	{
-		public Func<IList<double>, double> Function;
 		public int Variables;
+		public IList<double> Position { get; set; }
+		public IList<double> Speed { get; set; }
 
 		public OptimiserParticle()
 		{
-			Position = new List<double>(Variables);
-			Speed = new List<double>(Variables);
+			Position = new List<double>();
+			Speed = new List<double>();
 		}
-		public OptimiserParticle(Random randomGenerator)
+		public OptimiserParticle(Random randomGenerator, int variables)
 		{
+			Variables = variables;
 			for (int i = 0; i < Variables; i++)
 			{
 				Position.Add(randomGenerator.NextDouble() * 2.0 - 1.0);
@@ -24,29 +26,34 @@ namespace Optimiser
 			}
 		}
 
-		public OptimiserParticle CloneParticle()
+		public OptimiserParticle Clone()
 		{
 			return new OptimiserParticle()
 			{
-				Function = Function,
 				Position = Position.ToList(),
 				Speed = Speed.ToList(),
 				Variables = Variables
 			};
 		}
-
-
-		public int CompareTo(OptimiserParticle other)
+		
+		public IList<double> GetDistance(OptimiserParticle particle)
 		{
-			return Quality.CompareTo(other.Quality);
+			IList<double> list = new List<double>(particle.Position.Count);
+			for(int i = particle.Position.Count - 1; i >= 0; i--)
+			{
+				list.Add(particle.Position[i] - Position[i]);
+			}
+			return list;
 		}
 
-		public double Quality
+		public double GetCrowDistance(OptimiserParticle particle)
 		{
-			get
+			double res = 0;
+			foreach (var item in GetDistance(particle))
 			{
-				return Function(Position);
+				res += item * item;
 			}
+			return Math.Sqrt(res);
 		}
 	}
 }

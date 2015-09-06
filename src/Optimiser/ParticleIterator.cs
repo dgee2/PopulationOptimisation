@@ -13,7 +13,7 @@ namespace Optimiser
 
 		protected override IEnumerable<OptimiserParticle> Iterate(OptimiserParticle particle, IEnumerable<OptimiserParticle> population)
 		{
-			OptimiserParticle newParticle = particle.CloneParticle();
+			OptimiserParticle newParticle = particle.Clone();
 			for (int i = particle.Variables - 1; i >= 0; i--)
 			{
 				newParticle.Speed[i] *= SlowdownFactor;

@@ -3,6 +3,6 @@
 	public interface IIteratorFactory<P> where P : IProblemRepresentation<P>, new()
 	{
 		IIterator<P> GetIterator();
-		IIteratorFactory<P> SubIterator { get; set; }
+		IIteratorFactory<P> SubIteratorFactory { get; set; }
 	}
 }

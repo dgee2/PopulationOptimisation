@@ -8,16 +8,14 @@ namespace com.gee.PopulationOptimisation
 		public ISelector<P> Selector { get; set; }
 		public IParentSelector<P> ParentSelector { get; set; }
 		public P Particle { get; set; }
+
 		public ISelector<P> Restrictor { get; set; }
 
 		public IIteratorFactory<P> SubIteratorFactory { get; set; }
 
 		public IEnumerable<P> Iterate(IEnumerable<P> population)
 		{
-			if (Selector != null)
-			{
-				population = Selector.SelectParticles(population);
-			}
+			population = Selector.SelectParticles(population);
 			if (ParentSelector == null)
 			{
 				population = population.SelectMany(particle =>

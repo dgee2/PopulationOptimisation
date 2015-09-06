@@ -7,28 +7,39 @@ namespace Optimiser
 {
 	public class Runner
 	{
-		public static void Run(Func<IList<double>, double> function, int variables, int iterations, int populationSize, int swarmSize)
+		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, int populationCount)
 		{
-			ParticleIteratorFactory iteratorFactory = new ParticleIteratorFactory(new Random());
-			iteratorFactory.
+			Random random = new Random();
+			IList<IList<OptimiserParticle>> populations = new List<IList<OptimiserParticle>>();
+			for (int j = populationCount - 1; j >= 0; j--)
+			{
+				populations.Add(new List<OptimiserParticle>(populationSize));
+				for (int i = populationSize; i > 0; i--)
+				{
+					populations[j].Add(new OptimiserParticle(random, variables));
+				}
+			}
+			ParticleIteratorFactory iteratorFactory = new ParticleIteratorFactory(random, function);
 
 
-			OptimiserParticle.Function = function;
-			OptimiserParticle.RandomGenerator = new Random();
-			OptimiserParticle.Variables = variables;
-			IList<Swarm<OptimiserParticle>> swarms = new List<Swarm<OptimiserParticle>>(populationSize);
-			for (int i = 0; i < populationSize; i++)
+			for (uint iteration = 1; iteration <= iterations; iteration++)
 			{
-				swarms.Add(new Swarm<OptimiserParticle>(swarmSize));
+				var newSwarm = populations.AsParallel().Select(population => iteratorFactory.GetIterator().Iterate(population));
+				Console.WriteLine(string.Join(",", populations.Select(population =>
+				population.Max(particle => iteratorFactory.Function(particle))
+				)));
 			}
-			uint iteration = 0;
-			Console.Write(string.Join(",", swarms.Select(swarm => swarm.Particles.Max(x => x.Quality)).ToArray()));
-			for (; iteration < iterations; iteration++)
-			{
-				Parallel.ForEach(swarms, swarm => swarm.IterateSwarm());
-				Console.WriteLine();
-				Console.Write(string.Join(",", swarms.Select(swarm => swarm.Particles.Max(x => x.Quality)).ToArray()));
-			}
+			printDetails(iteratorFactory.Function, populations);
+		}
+
+		private static void printDetails(Func<OptimiserParticle, double> function, IList<IList<OptimiserParticle>> swarm)
+		{
+			IEnumerable<IEnumerable<double>> qualities = swarm.Select(population => population.Select(
+				particle => function(particle)
+				));
+			Console.WriteLine("(" + string.Join("),(",
+				qualities.Select(population => population.Select(particle => string.Join(",", particle)))
+				) + ")");
 		}
 	}
 }
