@@ -11,8 +11,8 @@
     },
 
     "commands": {
-        "Test": "ParticleSwarmOptimisationConsole --algorithm=Test",
-        "StyblinskiTang": "ParticleSwarmOptimisationConsole --algorithm=StyblinskiTang --variables=3"
+        "Test": "ParticleSwarmOptimisationConsole --algorithm=Test --populationCount=500",
+        "StyblinskiTang": "ParticleSwarmOptimisationConsole --algorithm=StyblinskiTang --variables=3 --populationCount=2 --parallel=false"
     },
 
     "frameworks": {

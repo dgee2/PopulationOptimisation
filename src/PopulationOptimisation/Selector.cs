@@ -18,7 +18,7 @@ namespace com.gee.PopulationOptimisation
 			}
 			if (OrderBy != null)
 			{
-				population.OrderBy(OrderBy);
+				population = population.OrderByDescending(OrderBy);
 			}
 			return population;
 		}

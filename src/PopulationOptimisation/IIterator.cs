@@ -6,6 +6,6 @@ namespace com.gee.PopulationOptimisation
 	{
 		IIteratorFactory<P> SubIteratorFactory { get; set; }
 		P Particle { get; set; }
-		IEnumerable<P> Iterate(IEnumerable<P> population);
+		IList<P> Iterate(IEnumerable<P> population);
 	}
 }

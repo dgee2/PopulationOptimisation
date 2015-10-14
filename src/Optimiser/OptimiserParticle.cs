@@ -13,12 +13,12 @@ namespace Optimiser
 
 		public OptimiserParticle()
 		{
-			Position = new List<double>();
-			Speed = new List<double>();
 		}
 		public OptimiserParticle(Random randomGenerator, int variables)
 		{
 			Variables = variables;
+			Position = new List<double>(variables);
+			Speed = new List<double>(variables);
 			for (int i = 0; i < Variables; i++)
 			{
 				Position.Add(randomGenerator.NextDouble() * 2.0 - 1.0);
@@ -35,11 +35,11 @@ namespace Optimiser
 				Variables = Variables
 			};
 		}
-		
+
 		public IList<double> GetDistance(OptimiserParticle particle)
 		{
 			IList<double> list = new List<double>(particle.Position.Count);
-			for(int i = particle.Position.Count - 1; i >= 0; i--)
+			for (int i = particle.Position.Count - 1; i >= 0; i--)
 			{
 				list.Add(particle.Position[i] - Position[i]);
 			}

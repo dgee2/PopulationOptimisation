@@ -18,7 +18,8 @@ namespace Optimiser
 			{
 				newParticle.Speed[i] *= SlowdownFactor;
 			}
-			AccelerateTowards(newParticle, population.First());
+			AccelerateTowards(newParticle,
+				population.First());
 			yield return newParticle;
 		}
 

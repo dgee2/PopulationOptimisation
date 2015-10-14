@@ -28,15 +28,15 @@ namespace ParticleSwarmOptimisation
 			{
 				strIterations = "100";
 			}
-			int iterations = int.Parse(strIterations);
+			uint iterations = uint.Parse(strIterations);
 			if (!config.TryGet("populationSize", out strPopulationSize))
 			{
 				strPopulationSize = "50";
 			}
 			int populationSize = int.Parse(strPopulationSize);
-			if (!config.TryGet("swarmSize", out strSwarmSize))
+			if (!config.TryGet("populationCount", out strSwarmSize))
 			{
-				strSwarmSize = "100";
+				strSwarmSize = "1";
 			}
 			int swarmSize = int.Parse(strSwarmSize);
 
@@ -44,31 +44,31 @@ namespace ParticleSwarmOptimisation
 			{
 				throw new Exception("Algorithm not set");
 			}
-			Func<IList<double>, double> function;
+			Func<OptimiserParticle, double> function;
 			switch (algorithm)
 			{
 				case "Test":
 					function = (x) =>
 					{
-						return x[0] * (1 - x[0]) * Math.Exp(x[0]);
+						return x.Position.Sum(y => y * y);
 					};
 					break;
 				case "StyblinskiTang":
 					function = (x) =>
 					{
-						x = x.Select(y=> Math.Max(Math.Min(y*5, 5), -5)).ToList();
-						double max = -x.Sum(y => Math.Pow(y, 4) - 16 * Math.Pow(y, 2) + 5 * y) / 2;
-						if (max > 78.4)
-						{
-							int a = 1;
-						}
-						return max;
+						return x.Position.Sum(y => Math.Pow(y, 4) - 16 * Math.Pow(y, 2) + 5 * y) / 2;
 					};
 					break;
 				default:
 					throw new NotImplementedException("Algorithm has not been implemented yet");
 			}
-			Runner.Run(function, variables, iterations, populationSize, swarmSize);
+			string strParallel;
+			if (!config.TryGet("parallel", out strParallel))
+			{
+				strParallel = "true";
+			}
+			bool parallel = bool.Parse(strParallel);
+			Runner.Run(function, variables, iterations, populationSize, swarmSize, parallel);
 		}
 	}
 }

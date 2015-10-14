@@ -13,22 +13,26 @@ namespace com.gee.PopulationOptimisation
 
 		public IIteratorFactory<P> SubIteratorFactory { get; set; }
 
-		public IEnumerable<P> Iterate(IEnumerable<P> population)
+		public IList<P> Iterate(IEnumerable<P> population)
 		{
 			population = Selector.SelectParticles(population);
 			if (ParentSelector == null)
 			{
-				population = population.SelectMany(particle =>
+				List<P> pop = new List<P>();
+				foreach (var particle in population)
 				{
-					return Iterate(particle, population);
-				});
+					pop.AddRange(Iterate(particle, population));
+				}
+				population = pop;
 			}
 			else
 			{
-				population = population.SelectMany(particle =>
+				List<P> pop = new List<P>();
+				foreach (var particle in population)
 				{
-					return Iterate(particle, ParentSelector.SelectParticles(particle, population));
-				});
+					pop.AddRange(Iterate(particle, ParentSelector.SelectParticles(particle, population)));
+				}
+				population = pop;
 			}
 			if (SubIteratorFactory != null)
 			{
@@ -48,7 +52,7 @@ namespace com.gee.PopulationOptimisation
 			{
 				population = Restrictor.SelectParticles(population);
 			}
-			return population;
+			return population.ToList();
 		}
 		protected abstract IEnumerable<P> Iterate(P particle, IEnumerable<P> population);
 	}

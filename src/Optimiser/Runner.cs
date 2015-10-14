@@ -7,11 +7,11 @@ namespace Optimiser
 {
 	public class Runner
 	{
-		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, int populationCount)
+		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, int populationCount, bool parallel = true)
 		{
 			Random random = new Random();
 			IList<IList<OptimiserParticle>> populations = new List<IList<OptimiserParticle>>();
-			for (int j = populationCount - 1; j >= 0; j--)
+			for (int j = 0; j < populationCount; j++)
 			{
 				populations.Add(new List<OptimiserParticle>(populationSize));
 				for (int i = populationSize; i > 0; i--)
@@ -24,10 +24,20 @@ namespace Optimiser
 
 			for (uint iteration = 1; iteration <= iterations; iteration++)
 			{
-				var newSwarm = populations.AsParallel().Select(population => iteratorFactory.GetIterator().Iterate(population));
-				Console.WriteLine(string.Join(",", populations.Select(population =>
-				population.Max(particle => iteratorFactory.Function(particle))
-				)));
+				var p = new List<IList<OptimiserParticle>>();
+				foreach (var item in populations)
+				{
+					var iterator = iteratorFactory.GetIterator();
+					p.Add(iterator.Iterate(item));
+				}
+				if (parallel)
+				{
+					populations = populations.AsParallel().Select(population => iteratorFactory.GetIterator().Iterate(population)).ToList();
+				}
+				else
+				{
+					populations = populations.Select(population => iteratorFactory.GetIterator().Iterate(population)).ToList();
+				}
 			}
 			printDetails(iteratorFactory.Function, populations);
 		}
@@ -37,9 +47,9 @@ namespace Optimiser
 			IEnumerable<IEnumerable<double>> qualities = swarm.Select(population => population.Select(
 				particle => function(particle)
 				));
-			Console.WriteLine("(" + string.Join("),(",
-				qualities.Select(population => population.Select(particle => string.Join(",", particle)))
-				) + ")");
+			Console.WriteLine(string.Join("\n",
+				qualities.Select(population => population.Min()
+				)));
 		}
 	}
 }
