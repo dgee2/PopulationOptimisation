@@ -7,6 +7,9 @@
     "licenseUrl": "",
 
     "dependencies": {
+        "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-rc1-final",
+		"Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc1-final",
         "Optimiser": "1.0.0-*"
     },
 
@@ -15,12 +18,7 @@
         "StyblinskiTang": "ParticleSwarmOptimisationConsole --algorithm=StyblinskiTang --variables=3 --populationCount=2 --parallel=false"
     },
 
-    "frameworks": {
-        "dnx451": {
-            "dependencies": {
-                "Microsoft.Framework.Configuration": "1.0.0-beta5",
-                "Microsoft.Framework.Configuration.CommandLine": "1.0.0-beta5"
-            }
-        }
-    }
-}
+	"frameworks": {
+		"dnx451": { }
+		}
+	}

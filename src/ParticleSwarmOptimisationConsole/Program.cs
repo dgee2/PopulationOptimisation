@@ -1,7 +1,6 @@
-﻿using Optimiser;
+﻿using Microsoft.Extensions.Configuration;
+using Optimiser;
 using System;
-using Microsoft.Framework.Configuration;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ParticleSwarmOptimisation
@@ -11,7 +10,9 @@ namespace ParticleSwarmOptimisation
 		public void Main(string[] args)
 		{
 			var config = new ConfigurationBuilder()
-							.AddCommandLine(args).Build();
+							.AddCommandLine(args)
+							.AddEnvironmentVariables()
+							.Build();
 
 			string algorithm;
 			string strVariables;
@@ -19,28 +20,34 @@ namespace ParticleSwarmOptimisation
 			string strPopulationSize;
 			string strSwarmSize;
 
-			if (!config.TryGet("variables", out strVariables))
+			strVariables = config["variables"];
+			if (strVariables==null)
 			{
 				strVariables = "1";
 			}
 			int variables = int.Parse(strVariables);
-			if (!config.TryGet("iterations", out strIterations))
+
+			strIterations = config["iterations"];
+			if (strIterations==null)
 			{
 				strIterations = "100";
 			}
 			uint iterations = uint.Parse(strIterations);
-			if (!config.TryGet("populationSize", out strPopulationSize))
+			strPopulationSize = config["populationSize"];
+			if (strPopulationSize == null)
 			{
 				strPopulationSize = "50";
 			}
 			int populationSize = int.Parse(strPopulationSize);
-			if (!config.TryGet("populationCount", out strSwarmSize))
+			strSwarmSize = config["populationCount"];
+			if (strSwarmSize == null)
 			{
 				strSwarmSize = "1";
 			}
 			int swarmSize = int.Parse(strSwarmSize);
 
-			if (!config.TryGet("algorithm", out algorithm))
+			algorithm = config["algorithm"];
+			if (algorithm == null)
 			{
 				throw new Exception("Algorithm not set");
 			}
@@ -62,8 +69,8 @@ namespace ParticleSwarmOptimisation
 				default:
 					throw new NotImplementedException("Algorithm has not been implemented yet");
 			}
-			string strParallel;
-			if (!config.TryGet("parallel", out strParallel))
+			string strParallel = config["parallel"];
+			if (strParallel == null)
 			{
 				strParallel = "true";
 			}

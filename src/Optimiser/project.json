@@ -7,24 +7,17 @@
 	"licenseUrl": "",
 
 	"frameworks": {
-		"dnx451": {
-			"dependencies": {
-			}
-		},
+		"dnx451": { },
 		"dnxcore50": {
 			"dependencies": {
-				"System.Collections": "4.0.10",
-				"System.Linq": "4.0.0",
-				"System.Threading": "4.0.10",
 				"System.Runtime": "4.0.20",
-				"Microsoft.CSharp": "4.0.0",
-				"System.Threading.Tasks.Parallel": "4.0.0",
-				"System.Linq.Parallel": "4.0.0-beta-23019",
-				"System.Console": "4.0.0-beta-23123"
+				"System.Console": "4.0.0-beta-23123",
+				"System.Linq": "4.0.0",
+				"System.Linq.Parallel": "4.0.0"
 			}
 		}
 	},
 	"dependencies": {
-		"PopulationOptimisation": "1.0.0-*"
+		"PopulationOptimisation": "1.0.0-*"  
 	}
 }
