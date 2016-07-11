@@ -1,20 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1071EF9F-A624-426E-86C9-82EC9BE7DA04}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14AB9F8C-0066-473D-88CD-269D3CFB752A}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optimiser", "src\Optimiser\Optimiser.csproj", "{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisationConsole", "src\ParticleSwarmOptimisationConsole\ParticleSwarmOptimisationConsole.xproj", "{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSwarmOptimisation", "src\ParticleSwarmOptimisation\ParticleSwarmOptimisation.csproj", "{3A225502-521E-4993-92EA-323C08374F8B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ParticleSwarmOptimisation", "src\ParticleSwarmOptimisation\ParticleSwarmOptimisation.xproj", "{3E66079C-A448-4204-941D-00F5216923EA}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Optimiser", "src\Optimiser\Optimiser.xproj", "{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleSwarmOptimisationConsole", "src\ParticleSwarmOptimisationConsole\ParticleSwarmOptimisationConsole.csproj", "{4F257558-25B5-4860-9980-6CCDE88911E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,25 +17,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E66079C-A448-4204-941D-00F5216923EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E66079C-A448-4204-941D-00F5216923EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E66079C-A448-4204-941D-00F5216923EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E66079C-A448-4204-941D-00F5216923EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A225502-521E-4993-92EA-323C08374F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A225502-521E-4993-92EA-323C08374F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A225502-521E-4993-92EA-323C08374F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A225502-521E-4993-92EA-323C08374F8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F257558-25B5-4860-9980-6CCDE88911E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F257558-25B5-4860-9980-6CCDE88911E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F257558-25B5-4860-9980-6CCDE88911E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F257558-25B5-4860-9980-6CCDE88911E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{79F62D1F-9CCD-4B3D-865D-7ED43DF0971C} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
-		{3E66079C-A448-4204-941D-00F5216923EA} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
-		{6EE75821-9E3C-41EB-87FA-A4A00E67B7CE} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
+		{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
+		{3A225502-521E-4993-92EA-323C08374F8B} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
+		{4F257558-25B5-4860-9980-6CCDE88911E6} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
 	EndGlobalSection
 EndGlobal
