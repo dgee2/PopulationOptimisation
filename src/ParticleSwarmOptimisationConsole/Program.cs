@@ -1,6 +1,4 @@
 ﻿using Gee.Optimiser;
-using System;
-using System.Linq;
 
 namespace ParticleSwarmOptimisationConsole
 {

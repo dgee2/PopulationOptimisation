@@ -1,8 +1,5 @@
 ﻿using Gee.PopulationOptimisation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Gee.Optimiser
 {
