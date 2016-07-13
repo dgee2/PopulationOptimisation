@@ -17,11 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimiserTests", "Optimiser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopulationOptimisationTests", "PopulationOptimisationTests\PopulationOptimisationTests.csproj", "{40E6EB36-ED38-4973-A22F-7CB841851B84}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BD51731-950E-4889-A7A6-093080A59EFD}"
-	ProjectSection(SolutionItems) = preProject
-		CodeMap.dgml = CodeMap.dgml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
