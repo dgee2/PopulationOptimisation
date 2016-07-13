@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace com.gee.PopulationOptimisation
+namespace Gee.PopulationOptimisation
 {
 	public interface IProblem<P> where P : IProblemRepresentation<P>, new()
 	{

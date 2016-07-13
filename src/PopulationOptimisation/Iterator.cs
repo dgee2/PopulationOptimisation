@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace com.gee.PopulationOptimisation
+namespace Gee.PopulationOptimisation
 {
 	public abstract class Iterator<P> : IIterator<P> where P : IProblemRepresentation<P>, new()
 	{

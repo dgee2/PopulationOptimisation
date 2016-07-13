@@ -1,9 +1,9 @@
-﻿using com.gee.PopulationOptimisation;
+﻿using Gee.PopulationOptimisation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optimiser
+namespace Gee.Optimiser
 {
 	public class ParticleIterator : Iterator<OptimiserParticle>
 	{

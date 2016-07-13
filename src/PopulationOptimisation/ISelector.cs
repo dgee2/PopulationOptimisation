@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace com.gee.PopulationOptimisation
+namespace Gee.PopulationOptimisation
 {
 	public interface ISelector<P>
 		where P : IProblemRepresentation<P>, new()

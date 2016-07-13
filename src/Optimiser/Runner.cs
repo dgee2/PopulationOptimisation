@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optimiser
+namespace Gee.Optimiser
 {
 	public class Runner
 	{
-		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, int populationCount, bool parallel = true)
+		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, uint populationCount, bool parallel = true)
 		{
 			Random random = new Random();
 			IList<IList<OptimiserParticle>> populations = new List<IList<OptimiserParticle>>();

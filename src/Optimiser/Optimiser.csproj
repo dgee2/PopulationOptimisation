@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}</ProjectGuid>
+    <ProjectGuid>{547D4F08-989B-4733-A765-07A8A9E883F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Optimiser</RootNamespace>
+    <RootNamespace>Gee.Optimiser</RootNamespace>
     <AssemblyName>Optimiser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,13 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OptimiserParticle.cs" />
+    <Compile Include="ParticleIterator.cs" />
+    <Compile Include="ParticleIteratorFactory.cs" />
+    <Compile Include="ParticleSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParticleSwarmOptimisation\ParticleSwarmOptimisation.csproj">
-      <Project>{3A225502-521E-4993-92EA-323C08374F8B}</Project>
-      <Name>ParticleSwarmOptimisation</Name>
+    <ProjectReference Include="..\PopulationOptimisation\PopulationOptimisation.csproj">
+      <Project>{8D0FFEDA-5373-4990-94C9-70811FF4C546}</Project>
+      <Name>PopulationOptimisation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

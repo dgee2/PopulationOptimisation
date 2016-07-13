@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace com.gee.PopulationOptimisation
+namespace Gee.PopulationOptimisation
 {
 	public abstract class Selector<P> : ISelector<P>
 		where P : IProblemRepresentation<P>, new()

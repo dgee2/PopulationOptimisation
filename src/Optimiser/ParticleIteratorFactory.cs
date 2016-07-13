@@ -1,7 +1,7 @@
-﻿using com.gee.PopulationOptimisation;
+﻿using Gee.PopulationOptimisation;
 using System;
 
-namespace Optimiser
+namespace Gee.Optimiser
 {
 	public class ParticleIteratorFactory : IIteratorFactory<OptimiserParticle>
 	{

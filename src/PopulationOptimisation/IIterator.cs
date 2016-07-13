@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace com.gee.PopulationOptimisation
+namespace Gee.PopulationOptimisation
 {
 	public interface IIterator<P> where P : IProblemRepresentation<P>, new()
 	{

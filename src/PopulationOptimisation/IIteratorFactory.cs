@@ -1,4 +1,4 @@
-﻿namespace com.gee.PopulationOptimisation
+﻿namespace Gee.PopulationOptimisation
 {
 	public interface IIteratorFactory<P> where P : IProblemRepresentation<P>, new()
 	{

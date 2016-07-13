@@ -1,10 +1,10 @@
-﻿using com.gee.PopulationOptimisation;
+﻿using Gee.PopulationOptimisation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optimiser
+namespace Gee.Optimiser
 {
 	public class ParticleSelector : Selector<OptimiserParticle>
 	{

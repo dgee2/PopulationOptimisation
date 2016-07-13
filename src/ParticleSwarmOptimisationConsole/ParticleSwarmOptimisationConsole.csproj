@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F257558-25B5-4860-9980-6CCDE88911E6}</ProjectGuid>
+    <ProjectGuid>{55F4E654-6268-46C1-87B6-AB370D6DE9C9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParticleSwarmOptimisationConsole</RootNamespace>
@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Optimiser\Optimiser.csproj">
-      <Project>{7BEF75D6-ED6F-445F-8C39-C5D1EC08CE65}</Project>
+      <Project>{547D4F08-989B-4733-A765-07A8A9E883F3}</Project>
       <Name>Optimiser</Name>
     </ProjectReference>
   </ItemGroup>
