@@ -3,11 +3,11 @@ using Optimiser;
 using System;
 using System.Linq;
 
-namespace ParticleSwarmOptimisation
+namespace ParticleSwarmOptimisationConsole
 {
 	public class Program
 	{
-		public void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			var config = new ConfigurationBuilder()
 							.AddCommandLine(args)
