@@ -6,7 +6,7 @@ namespace Gee.Optimiser
 {
 	public class Runner
 	{
-		public static void Run(Func<OptimiserParticle, double> function, int variables, uint iterations, int populationSize, uint populationCount, bool parallel = true)
+		public static void Run(Func<OptimiserParticle, double> function, int variables, int iterations, int populationSize, int populationCount, bool parallel = true)
 		{
 			Random random = new Random();
 			IList<IList<OptimiserParticle>> populations = new List<IList<OptimiserParticle>>();
@@ -21,7 +21,7 @@ namespace Gee.Optimiser
 			ParticleIteratorFactory iteratorFactory = new ParticleIteratorFactory(random, function);
 
 
-			for (uint iteration = 1; iteration <= iterations; iteration++)
+			for (int iteration = 1; iteration <= iterations; iteration++)
 			{
 				var p = new List<IList<OptimiserParticle>>();
 				foreach (var item in populations)

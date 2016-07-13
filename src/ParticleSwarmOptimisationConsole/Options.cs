@@ -17,7 +17,7 @@ namespace ParticleSwarmOptimisationConsole
 		[Option("iterations",
 			HelpText = "The number of iterations to run until",
 			DefaultValue = 100)]
-		public uint Iterations { get; set; }
+		public int Iterations { get; set; }
 
 		[Option("populationSize",
 			HelpText = "The size of the population to use",
@@ -27,7 +27,7 @@ namespace ParticleSwarmOptimisationConsole
 		[Option("swarmSize",
 			HelpText = "The size of the swarm to use",
 			DefaultValue = 100)]
-		public uint SwarmSize { get; set; }
+		public int SwarmSize { get; set; }
 
 		[Option('a',
 			"algorithm",
