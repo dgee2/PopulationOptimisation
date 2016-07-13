@@ -77,6 +77,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\PopulationOptimisation\PopulationOptimisation.csproj">
+      <Project>{8d0ffeda-5373-4990-94c9-70811ff4c546}</Project>
+      <Name>PopulationOptimisation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
