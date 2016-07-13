@@ -15,6 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E564C08F-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimiserTests", "OptimiserTests\OptimiserTests.csproj", "{4F2B2686-008C-46B8-BE66-3B638A4D38AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopulationOptimisationTests", "PopulationOptimisationTests\PopulationOptimisationTests.csproj", "{40E6EB36-ED38-4973-A22F-7CB841851B84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4BD51731-950E-4889-A7A6-093080A59EFD}"
+	ProjectSection(SolutionItems) = preProject
+		CodeMap.dgml = CodeMap.dgml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +44,10 @@ Global
 		{4F2B2686-008C-46B8-BE66-3B638A4D38AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F2B2686-008C-46B8-BE66-3B638A4D38AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F2B2686-008C-46B8-BE66-3B638A4D38AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E6EB36-ED38-4973-A22F-7CB841851B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E6EB36-ED38-4973-A22F-7CB841851B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E6EB36-ED38-4973-A22F-7CB841851B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E6EB36-ED38-4973-A22F-7CB841851B84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +57,6 @@ Global
 		{547D4F08-989B-4733-A765-07A8A9E883F3} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
 		{55F4E654-6268-46C1-87B6-AB370D6DE9C9} = {1071EF9F-A624-426E-86C9-82EC9BE7DA04}
 		{4F2B2686-008C-46B8-BE66-3B638A4D38AA} = {E564C08F-EC49-4DB1-AC54-EDC960D41E1D}
+		{40E6EB36-ED38-4973-A22F-7CB841851B84} = {E564C08F-EC49-4DB1-AC54-EDC960D41E1D}
 	EndGlobalSection
 EndGlobal
