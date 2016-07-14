@@ -37,5 +37,11 @@ namespace OptimiserTests
 			var sut = new OptimiserParticle(A.Fake<Random>(), variables);
 			Assert.AreEqual(variables, sut.Speed.Length);
 		}
+
+		[Test]
+		public void Construct_New_Instance_With_Default_Constructor()
+		{
+			new OptimiserParticle();
+		}
 	}
 }
