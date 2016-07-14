@@ -26,7 +26,7 @@ namespace Gee.Optimiser
 		private void AccelerateTowards(OptimiserParticle newParticle, OptimiserParticle particle)
 		{
 			IList<double> distance = newParticle.GetDistance(particle).ToList();
-			for (int i = newParticle.Speed.Count - 1; i >= 0; i--)
+			for (int i = newParticle.Variables - 1; i >= 0; i--)
 			{
 				newParticle.Speed[i] += distance[i] * AccelerationFactor;
 				particle.Position[i] += particle.Speed[i];

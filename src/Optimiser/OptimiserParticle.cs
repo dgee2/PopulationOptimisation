@@ -1,5 +1,6 @@
 ﻿using Gee.PopulationOptimisation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,14 +9,14 @@ namespace Gee.Optimiser
 	public class OptimiserParticle : IProblemRepresentation<OptimiserParticle>
 	{
 		public int Variables { get; }
-		public IList<double> Position { get; }
-		public IList<double> Speed { get; }
+		public double[] Position { get; }
+		public double[] Speed { get; }
 
 		public OptimiserParticle()
 		{
 		}
 
-		private OptimiserParticle(IList<double> position, IList<double> speed, int variables)
+		private OptimiserParticle(double[] position, double[] speed, int variables)
 		{
 			Position = position;
 			Speed = speed;
@@ -25,30 +26,30 @@ namespace Gee.Optimiser
 		public OptimiserParticle(Random randomGenerator, int variables)
 		{
 			Variables = variables;
-			Position = new List<double>(variables);
-			Speed = new List<double>(variables);
+			Position = new double[variables];
+			Speed = new double[variables];
 			for (int i = 0; i < Variables; i++)
 			{
-				Position.Add(randomGenerator.NextDouble() * 2.0 - 1.0);
-				Speed.Add(randomGenerator.NextDouble() * 2.0 - 1.0);
+				Position[i] = randomGenerator.NextDouble() * 2.0 - 1.0;
+				Speed[i] = randomGenerator.NextDouble() * 2.0 - 1.0;
 			}
 		}
 
 		public OptimiserParticle Clone()
 		{
 			return new OptimiserParticle(
-				Position.ToList(),
-				Speed.ToList(),
+				Position,
+				Speed,
 				Variables
 			);
 		}
 
-		public IList<double> GetDistance(OptimiserParticle particle)
+		public double[] GetDistance(OptimiserParticle particle)
 		{
-			IList<double> list = new List<double>(particle.Position.Count);
-			for (int i = particle.Position.Count - 1; i >= 0; i--)
+			double[] list = new double[Variables];
+			for (int i = Variables - 1; i >= 0; i--)
 			{
-				list.Add(particle.Position[i] - Position[i]);
+				list[i] = particle.Position[i] - Position[i];
 			}
 			return list;
 		}

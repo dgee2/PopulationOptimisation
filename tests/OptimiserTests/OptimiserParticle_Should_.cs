@@ -26,7 +26,7 @@ namespace OptimiserTests
 		public void Construct_New_Instance_With_Correct_Size_Of_Position_List(int variables)
 		{
 			var sut = new OptimiserParticle(A.Fake<Random>(), variables);
-			Assert.AreEqual(variables, sut.Position.Count);
+			Assert.AreEqual(variables, sut.Position.Length);
 		}
 
 		[TestCase(0)]
@@ -35,7 +35,7 @@ namespace OptimiserTests
 		public void Construct_New_Instance_With_Correct_Size_Of_Speed_List(int variables)
 		{
 			var sut = new OptimiserParticle(A.Fake<Random>(), variables);
-			Assert.AreEqual(variables, sut.Speed.Count);
+			Assert.AreEqual(variables, sut.Speed.Length);
 		}
 	}
 }
