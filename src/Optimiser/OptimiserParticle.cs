@@ -7,13 +7,21 @@ namespace Gee.Optimiser
 {
 	public class OptimiserParticle : IProblemRepresentation<OptimiserParticle>
 	{
-		public int Variables;
-		public IList<double> Position { get; set; }
-		public IList<double> Speed { get; set; }
+		public int Variables { get; }
+		public IList<double> Position { get; }
+		public IList<double> Speed { get; }
 
 		public OptimiserParticle()
 		{
 		}
+
+		private OptimiserParticle(IList<double> position, IList<double> speed, int variables)
+		{
+			Position = position;
+			Speed = speed;
+			Variables = variables;
+		}
+
 		public OptimiserParticle(Random randomGenerator, int variables)
 		{
 			Variables = variables;
@@ -28,12 +36,11 @@ namespace Gee.Optimiser
 
 		public OptimiserParticle Clone()
 		{
-			return new OptimiserParticle()
-			{
-				Position = Position.ToList(),
-				Speed = Speed.ToList(),
-				Variables = Variables
-			};
+			return new OptimiserParticle(
+				Position.ToList(),
+				Speed.ToList(),
+				Variables
+			);
 		}
 
 		public IList<double> GetDistance(OptimiserParticle particle)
