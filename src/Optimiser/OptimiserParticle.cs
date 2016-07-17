@@ -16,6 +16,13 @@ namespace Gee.Optimiser
 		{
 		}
 
+		public OptimiserParticle(double[] position, double[] speed)
+			:this(position,speed,position.Length)
+		{
+			if (position.Length != speed.Length)
+				throw new ArgumentException($"Number of dimensions ({speed.Length}) different to {nameof(position)} ({position.Length})", nameof(speed));
+		}
+
 		private OptimiserParticle(double[] position, double[] speed, int variables)
 		{
 			Position = position;
@@ -38,8 +45,8 @@ namespace Gee.Optimiser
 		public OptimiserParticle Clone()
 		{
 			return new OptimiserParticle(
-				Position,
-				Speed,
+				Position.ToArray(),
+				Speed.ToArray(),
 				Variables
 			);
 		}
